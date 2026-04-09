@@ -1,12 +1,7 @@
 import Image from "next/image";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { withBasePath } from "@/lib/asset-path";
 import { formatWeaknessHeadline, formatWeaknessSubtext } from "@/lib/format";
 import type { AnalysisResult, ElementKey } from "@/types/saju";
 
@@ -16,23 +11,23 @@ interface ResultSummaryCardProps {
 
 const RESULT_IMAGE_MAP: Record<ElementKey, { src: string; alt: string }> = {
   wood: {
-    src: "/result-wood.png",
+    src: withBasePath("/result-wood.png"),
     alt: "목이 부족할 때 표시되는 목 안내 이미지",
   },
   fire: {
-    src: "/result-fire.png",
+    src: withBasePath("/result-fire.png"),
     alt: "화가 부족할 때 표시되는 화 안내 이미지",
   },
   earth: {
-    src: "/result-earth.png",
+    src: withBasePath("/result-earth.png"),
     alt: "토가 부족할 때 표시되는 토 안내 이미지",
   },
   metal: {
-    src: "/result-metal.png",
+    src: withBasePath("/result-metal.png"),
     alt: "금이 부족할 때 표시되는 금 안내 이미지",
   },
   water: {
-    src: "/result-water.png",
+    src: withBasePath("/result-water.png"),
     alt: "수가 부족할 때 표시되는 수 안내 이미지",
   },
 };
@@ -61,7 +56,6 @@ export function ResultSummaryCard({ result }: ResultSummaryCardProps) {
                   src={resultImage.src}
                   alt={resultImage.alt}
                   fill
-                  unoptimized
                   sizes="(max-width: 768px) min(100vw - 4rem, 360px), (max-width: 1280px) 34vw, 360px"
                   className="object-contain object-center"
                 />

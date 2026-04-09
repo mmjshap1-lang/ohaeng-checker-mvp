@@ -1,11 +1,15 @@
 import Image from "next/image";
 
+import { withBasePath } from "@/lib/asset-path";
+
+const HERO_IMAGE = withBasePath("/hero.png");
+
 export function HeroSection() {
   return (
     <section className="flex flex-col items-center gap-3 pt-0 text-center sm:pt-4">
       <div className="relative flex w-full max-w-3xl flex-col items-center gap-0">
         <Image
-          src="/hero.png"
+          src={HERO_IMAGE}
           alt="아미테라 오행 대표 이미지"
           width={166}
           height={166}
@@ -18,7 +22,7 @@ export function HeroSection() {
           </h1>
         </div>
         <Image
-          src="/hero.png"
+          src={HERO_IMAGE}
           alt="아미테라 오행 대표 이미지"
           width={130}
           height={130}

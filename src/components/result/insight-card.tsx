@@ -1,20 +1,15 @@
 import Image from "next/image";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { withBasePath } from "@/lib/asset-path";
 import type { AnalysisResult } from "@/types/saju";
 
 interface InsightCardProps {
   result: AnalysisResult;
 }
 
-const INTERPRETATION_IMAGE = "/insight.jpg";
+const INTERPRETATION_IMAGE = withBasePath("/insight.jpg");
 
 export function InsightCard({ result }: InsightCardProps) {
   return (
@@ -32,7 +27,6 @@ export function InsightCard({ result }: InsightCardProps) {
               src={INTERPRETATION_IMAGE}
               alt="오행 해석 안내 이미지"
               fill
-              unoptimized
               sizes="(max-width: 1024px) 100vw, 42vw"
               className="object-contain object-center"
             />
